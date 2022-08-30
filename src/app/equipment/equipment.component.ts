@@ -21,25 +21,41 @@ export class EquipmentComponent implements OnInit {
    cargoMass: number = 0;
    maximumAllowedMass: number = 2000;
    maxItems: number = 10;
-   itCanFit = true;
+/*    noSpace: boolean = false;
+   isActive: boolean = true; */
+   closeShave: boolean = false;
 
    constructor() { }
 
    ngOnInit() { }
 
-  checkForSpace ()  {
-     if (this.cargoHold.length + 1 <= this.maxItems) {
-       this.itCanFit = true;
-     } else {
-       this.itCanFit = false;
-     }
-     return this.itCanFit;
-   }
+   //Attempt to disable buttons
+/*    checkForSpace (item: object): boolean {
+    if (this.cargoHold.length === this.maxItems) {
+      this.noSpace = true;
+      this.isActive = false;
+    } else if (this.maximumAllowedMass <= this.cargoMass + item['mass']) {
+      this.noSpace = true;
+      this.isActive = false;
+    } else {
+      this.noSpace = false;
+      this.isActive = true;
+    }
+    return this.noSpace;
+   } */
 
    // Code your addItem function here:
-   addItem (item): boolean {
+   addItem (item: object): boolean {
     this.cargoHold.push(item);
-    this.cargoMass = this.cargoMass + item.mass;
-    return ( (this.maximumAllowedMass - this.cargoMass) <= 200 );
+    this.cargoMass = this.cargoMass + item['mass'];
+    this.closeShave =  (this.maximumAllowedMass - this.cargoMass) <= 200 ;
+    return (this.closeShave);
+   }
+
+   //clear the hold!
+   clearHold() {
+    this.cargoMass = 0;
+    this.cargoHold =[];
+    this.closeShave = false;
    }
 }
