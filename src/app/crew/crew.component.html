@@ -4,7 +4,9 @@
         <li [class.selected]="crew.includes(member)" *ngFor="let member of candidates" (click)="addCrewMember(member)">{{member.name}}</li>
     </ul>
 </div>
-<hr>
+
+<br /><br /><br />
+
 <div class="displayBox">
     <h3>Crew <span *ngIf="crew.length === 3">Full</span></h3>
     <ol>

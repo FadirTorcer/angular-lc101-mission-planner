@@ -4,4 +4,16 @@
       <li *ngFor="let experiment of experiments">{{experiment}}</li>
     </ul>
 </div>
-<hr>
+
+<br /><br /><br />
+
+<div class = "displayBox">
+    <h3>Experiments Prepared</h3>
+    <ol>
+        <li *ngFor="let equipment of cargoHold">{{equipment.name}}</li>
+    </ol>
+    <p>Mass in Hold: {{cargoMass}} kg</p>
+    <p [class.nearMaxMass] = "closeShave">Mass Budget Remaining: {{maximumAllowedMass - cargoMass}} kg</p>
+    <!-- Add the "Empty Hold" button here. -->
+    <button (click) = "clearHold()">Empty Hold</button>
+</div>

@@ -1,6 +1,8 @@
 .displayBox {
-    height: 275px;
     width: auto;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
 }
 
 button {
@@ -12,11 +14,15 @@ h3 {
     text-align: center;
 }
 
+ul.noBullets {
+    list-style-type: none;
+}
+
 /* Add an 'active' class to style the background of the 'Add to Cargo Hold' buttons. */
 .active {
     background-color: lightcoral;
-/*     border: 3px;
-    border-color: black; */
+    border: double;
+    color: black;
 }
 
 /* Add the 'nearMaxMass' class style here: */
