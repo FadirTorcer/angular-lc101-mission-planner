@@ -3,7 +3,9 @@
     <ol>
         <li *ngFor="let item of equipmentItems">
             <!-- "Add to Cargo Hold" button goes here. -->
-            {{item.name}}, {{item.mass}} kg
+            <span *ngIf="checkForSpace(); else elseBlock">
+                <button [class.active]="checkForSpace()" (click)="additem(item)">Add to Cargo Hold</button>
+                <span>{{item.name}}, {{item.mass}} kg</span>
         </li>
     </ol>
 </div>
